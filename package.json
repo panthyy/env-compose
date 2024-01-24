@@ -2,8 +2,9 @@
   "name": "env-compose",
   "module": "index.ts",
   "type": "module",
+  "version": "0.0.2",
   "bin": {
-    "env-compose": "./dist/index.js"
+    "env-compose": "dist/index.js"
   },
   "scripts": {
     "build": "bun build ./index.ts --outdir ./dist --target node && sed -i '1i #!/usr/bin/env node' ./dist/index.js",
