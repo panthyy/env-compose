@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import spawn from "cross-spawn";
+import pkg from "./package.json";
 
 export const parseEnvFile = async (envFilePath: string) => {
   if (!existsSync(envFilePath)) {
@@ -24,6 +25,11 @@ const { values, positionals } = parseArgs({
   strict: true,
   allowPositionals: true,
 });
+
+if (positionals.at(0) === "version") {
+  console.log(pkg.version);
+  process.exit(0);
+}
 
 const envFilePath = positionals[0];
 if (!envFilePath) {
