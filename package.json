@@ -1,0 +1,22 @@
+{
+  "name": "env-compose",
+  "module": "index.ts",
+  "type": "module",
+  "bin": {
+    "env-compose": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "bun build ./index.ts --outdir ./dist --target node && sed -i '1i #!/usr/bin/env node' ./dist/index.js",
+    "dev": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/cross-spawn": "^6.0.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "cross-spawn": "^7.0.3"
+  }
+}
